@@ -6,14 +6,14 @@ using UnityEngine.Events;
 
 public class InteractableObject : MonoBehaviour
 {
-    public UnityEvent OnInteract = new();
+    public UnityEvent<PlayerInteractHandler> OnInteract = new();
 
     private bool isHighlighted;
     public UnityEvent<bool> OnHighlighted = new();
     
-    public void Interact()
+    public void Interact(PlayerInteractHandler interacter)
     {
-        OnInteract.Invoke();
+        OnInteract.Invoke(interacter);
     }
 
     public void Highlight(bool isHighlighted)

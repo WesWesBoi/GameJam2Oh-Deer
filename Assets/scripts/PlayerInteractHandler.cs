@@ -49,7 +49,7 @@ public class PlayerInteractHandler : MonoBehaviour
 
         if (closestObject != null)
         {
-            closestObject.Interact();
+            closestObject.Interact(this);
             OnInteract.Invoke(closestObject);
         }
     }

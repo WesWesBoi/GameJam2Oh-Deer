@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 6371662979667074255}
   - component: {fileID: 1427937089304073029}
   - component: {fileID: 2616469056777787036}
+  - component: {fileID: 4626633492230385244}
+  - component: {fileID: 8221093259577561192}
   m_Layer: 0
   m_Name: InteractHandler
   m_TagString: Untagged
@@ -45,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b6770b108bc4059b597b2dd6dbbff1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractHandler
-  interactDistance: 3
+  interactDistance: 1.5
   OnInteract:
     m_PersistentCalls:
       m_Calls: []
@@ -53,7 +55,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   closestObject: {fileID: 0}
-  interactKeys: 2000000043010000
 --- !u!135 &2616469056777787036
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -73,8 +74,49 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 3
+  m_Radius: 1.5
   m_Center: {x: 0, y: -0.5, z: 0}
+--- !u!54 &4626633492230385244
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1177135964819694668}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 8
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 1
+--- !u!114 &8221093259577561192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1177135964819694668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edafb729eba641cf9332754ef135a3b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GarbageCollector
+  garbageCollected: 0
+  maxGarbage: 30
 --- !u!1 &1909837221284687145
 GameObject:
   m_ObjectHideFlags: 0
