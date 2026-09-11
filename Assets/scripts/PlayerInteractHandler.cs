@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(SphereCollider))]
 public class PlayerInteractHandler : MonoBehaviour
 {
     private SphereCollider sphereCollider;
@@ -34,6 +35,7 @@ public class PlayerInteractHandler : MonoBehaviour
     private void Update()
     {
         HandleInput();
+        UpdateClosestObject();
     }
 
     /// <summary>
@@ -41,7 +43,7 @@ public class PlayerInteractHandler : MonoBehaviour
     /// </summary>
     private void HandleInput()
     {
-        bool isInteractKeyPressed = Keyboard.current[Key.Space].wasPressedThisFrame || Mouse.current.leftButton.wasPressedThisFrame;
+        bool isInteractKeyPressed = Keyboard.current.spaceKey.wasPressedThisFrame || Mouse.current.leftButton.wasPressedThisFrame;
         if (!isInteractKeyPressed)
             return;
 
@@ -52,14 +54,11 @@ public class PlayerInteractHandler : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        if (!other.TryGetComponent<InteractableObject>(out InteractableObject interactableObject))
+        if (!other.TryGetComponent(out InteractableObject interactableObject))
             return;
 
-        if (objectsInRange.Contains(interactableObject))
-            return;
-        
         objectsInRange.Add(interactableObject);
         UpdateClosestObject();
     }
@@ -67,9 +66,6 @@ public class PlayerInteractHandler : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         if (!other.TryGetComponent<InteractableObject>(out InteractableObject interactableObject))
-            return;
-
-        if (!objectsInRange.Contains(interactableObject))
             return;
         
         objectsInRange.Remove(interactableObject);
@@ -79,13 +75,34 @@ public class PlayerInteractHandler : MonoBehaviour
     private void UpdateClosestObject()
     {
         InteractableObject previousClosestObject = closestObject;
-        
-        if (objectsInRange == null || objectsInRange.Count == 0)
-            closestObject = null;
-        else
-            closestObject = objectsInRange.OrderBy(obj => Vector3.Distance(transform.position, obj.transform.position)).First();
-        
-        if (previousClosestObject != closestObject)
-            OnClosestChanged.Invoke(closestObject);
+
+        closestObject = null;
+        float closestSqrDistance = float.MaxValue;
+
+        foreach (InteractableObject obj in objectsInRange)
+        {
+            if (obj == null)
+                continue;
+
+            float sqrDistance =
+                (obj.transform.position - transform.position).sqrMagnitude;
+
+            if (sqrDistance < closestSqrDistance)
+            {
+                closestSqrDistance = sqrDistance;
+                closestObject = obj;
+            }
+        }
+
+        if (previousClosestObject == closestObject)
+            return;
+
+        if (previousClosestObject != null)
+            previousClosestObject.Highlight(false);
+
+        if (closestObject != null)
+            closestObject.Highlight(true);
+
+        OnClosestChanged.Invoke(closestObject);
     }
 }
