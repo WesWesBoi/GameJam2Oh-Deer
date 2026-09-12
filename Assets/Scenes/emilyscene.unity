@@ -741,11 +741,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -5477749408508380018, guid: cb9425beadde64135b787c392399728f, type: 3}
       propertyPath: m_LocalScale.x
-      value: 5630.2847
+      value: 10815.115
       objectReference: {fileID: 0}
     - target: {fileID: -5477749408508380018, guid: cb9425beadde64135b787c392399728f, type: 3}
       propertyPath: m_LocalScale.y
-      value: 5979.342
+      value: 9252.549
       objectReference: {fileID: 0}
     - target: {fileID: -5477749408508380018, guid: cb9425beadde64135b787c392399728f, type: 3}
       propertyPath: m_LocalScale.z
@@ -753,15 +753,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -5477749408508380018, guid: cb9425beadde64135b787c392399728f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 111.99129
+      value: 240.14723
       objectReference: {fileID: 0}
     - target: {fileID: -5477749408508380018, guid: cb9425beadde64135b787c392399728f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -19.519192
+      value: -19.519184
       objectReference: {fileID: 0}
     - target: {fileID: -5477749408508380018, guid: cb9425beadde64135b787c392399728f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 53.499817
+      value: 49.99948
       objectReference: {fileID: 0}
     - target: {fileID: -4683669308469848369, guid: cb9425beadde64135b787c392399728f, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -1613,91 +1613,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 86a2c9836ae8c4932b9c7c1c1a6f85fb, type: 3}
   m_PrefabInstance: {fileID: 726091289}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &757687044
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 9025435444988080512, guid: c4cc3cc9ac499864f882426702a19b05, type: 3}
-      propertyPath: m_Name
-      value: Whitish Fog (3)
-      objectReference: {fileID: 0}
-    - target: {fileID: 9025435444988080515, guid: c4cc3cc9ac499864f882426702a19b05, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 9025435444988080515, guid: c4cc3cc9ac499864f882426702a19b05, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 9025435444988080515, guid: c4cc3cc9ac499864f882426702a19b05, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 9025435444988080515, guid: c4cc3cc9ac499864f882426702a19b05, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -14.681942
-      objectReference: {fileID: 0}
-    - target: {fileID: 9025435444988080515, guid: c4cc3cc9ac499864f882426702a19b05, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 55.999985
-      objectReference: {fileID: 0}
-    - target: {fileID: 9025435444988080515, guid: c4cc3cc9ac499864f882426702a19b05, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -391.2649
-      objectReference: {fileID: 0}
-    - target: {fileID: 9025435444988080515, guid: c4cc3cc9ac499864f882426702a19b05, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9025435444988080515, guid: c4cc3cc9ac499864f882426702a19b05, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9025435444988080515, guid: c4cc3cc9ac499864f882426702a19b05, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9025435444988080515, guid: c4cc3cc9ac499864f882426702a19b05, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9025435444988080515, guid: c4cc3cc9ac499864f882426702a19b05, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9025435444988080515, guid: c4cc3cc9ac499864f882426702a19b05, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9025435444988080515, guid: c4cc3cc9ac499864f882426702a19b05, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9025435444988080573, guid: c4cc3cc9ac499864f882426702a19b05, type: 3}
-      propertyPath: EmissionModule.rateOverTime.scalar
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 9025435444988080573, guid: c4cc3cc9ac499864f882426702a19b05, type: 3}
-      propertyPath: InitialModule.startColor.maxColor.b
-      value: 0.85882354
-      objectReference: {fileID: 0}
-    - target: {fileID: 9025435444988080573, guid: c4cc3cc9ac499864f882426702a19b05, type: 3}
-      propertyPath: InitialModule.startColor.maxColor.g
-      value: 0.9372549
-      objectReference: {fileID: 0}
-    - target: {fileID: 9025435444988080573, guid: c4cc3cc9ac499864f882426702a19b05, type: 3}
-      propertyPath: InitialModule.startColor.maxColor.r
-      value: 0.72156864
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: c4cc3cc9ac499864f882426702a19b05, type: 3}
 --- !u!1001 &938058666
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4349,4 +4264,3 @@ SceneRoots:
   - {fileID: 159224584}
   - {fileID: 103320500}
   - {fileID: 1368404464}
-  - {fileID: 757687044}
