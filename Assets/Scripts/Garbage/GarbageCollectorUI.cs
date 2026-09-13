@@ -5,10 +5,13 @@ using UnityEngine;
 public class GarbageCollectorUI : MonoBehaviour
 {
     [SerializeField] private GarbageCollector garbageCollector;
-    [SerializeField] private TMP_Text text;
+    [SerializeField] private GarbageSpawner garbageSpawner;
+    [SerializeField] private TMP_Text currentGarbageCountText;
+    [SerializeField] private TMP_Text remainingGarbageCountText;
 
     private void Update()
     {
-        text.text = $"Bag: {garbageCollector.garbageCollected}";
+        currentGarbageCountText.text = $"Bag: {garbageCollector.garbageCollected}";
+        remainingGarbageCountText.text = $"Remaining: {garbageSpawner.spawnedGarbages.Count}";
     }
 }

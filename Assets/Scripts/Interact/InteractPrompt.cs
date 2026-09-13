@@ -13,7 +13,7 @@ public class InteractPrompt : MonoBehaviour
         rectTransform = GetComponent<RectTransform>();
     }
 
-    private void Update()
+    private void LateUpdate()
     {
         UpdatePromptPosition();
     }

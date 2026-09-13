@@ -1,7 +1,15 @@
+using System;
 using UnityEngine;
 
 public class Garbage : MonoBehaviour
 {
+    private Action<Garbage> OnDestroyCallback;
+    
+    public void Init(Action<Garbage> onDestroyCallback = null)
+    {
+        OnDestroyCallback = onDestroyCallback;
+    }
+    
     public void TryCollect(PlayerInteractHandler interacter)
     {
         if (!interacter.TryGetComponent(out GarbageCollector garbageCollector))
@@ -9,7 +17,15 @@ public class Garbage : MonoBehaviour
 
         if (garbageCollector.TryCollectGarbage(this))
         {
-            Destroy(gameObject);
+            OnCollect();
         }
+    }
+
+    public void OnCollect()
+    {
+        if (OnDestroyCallback != null)
+            OnDestroyCallback.Invoke(this);
+        
+        Destroy(gameObject);
     }
 }
