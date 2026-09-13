@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 1361860050712459844}
   - component: {fileID: 7999860860383114694}
   - component: {fileID: 4410423317457480363}
+  - component: {fileID: 4870492194854992212}
   m_Layer: 3
   m_Name: Garbage
   m_TagString: Untagged
@@ -8672,6 +8673,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ccc9423e26c7314dad3fdf02f5eae2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Interactable
+  displayName: Trash
   OnInteract:
     m_PersistentCalls:
       m_Calls:
@@ -8729,3 +8731,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &4870492194854992212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5690884472872048423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cadd8928e7a447fb2c80d310d21f5ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Stackable
+  stackCount: 1

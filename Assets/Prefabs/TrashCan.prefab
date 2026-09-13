@@ -2712,6 +2712,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ccc9423e26c7314dad3fdf02f5eae2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractableObject
+  displayName: Trash Can
   OnInteract:
     m_PersistentCalls:
       m_Calls:

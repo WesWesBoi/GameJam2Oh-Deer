@@ -6,6 +6,7 @@ using UnityEngine.Events;
 
 public class InteractableObject : MonoBehaviour
 {
+    public string displayName = "Interactable";
     public UnityEvent<PlayerInteractHandler> OnInteract = new();
 
     private bool isHighlighted;
