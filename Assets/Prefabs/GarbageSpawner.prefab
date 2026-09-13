@@ -46,9 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GarbageSpawner
   garbagePrefab: {fileID: 7999860860383114694, guid: 12ed4cf612dc8944ab09198958d5d371, type: 3}
   spawnedGarbages: []
-  center: {x: 0, y: 0, z: 34.4}
-  size: {x: 26.28, y: 24.3}
-  gridDimensions: {x: 5, y: 5}
-  garbageCount: 25
-  cellPadding: 0.5
+  center: {x: 0, y: 0, z: 48.4}
+  size: {x: 50, y: 50}
+  gridDimensions: {x: 15, y: 12}
+  garbageCount: 100
+  cellPadding: 0.2
   spawnHeight: 2

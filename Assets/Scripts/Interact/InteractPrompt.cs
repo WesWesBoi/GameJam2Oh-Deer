@@ -9,32 +9,19 @@ public class InteractPrompt : MonoBehaviour
     
     private InteractableObject currentInteractable;
     private RectTransform rectTransform;
-    private Camera mainCamera;
-    private Vector2 offset;
 
     private void Awake()
     {
-        mainCamera = Camera.main;
         rectTransform = GetComponent<RectTransform>();
     }
 
-    private void LateUpdate()
-    {
-        UpdatePromptPosition();
-    }
-    
-    private void UpdatePromptPosition()
+    private void Update()
     {
         if (currentInteractable == null)
         {
             gameObject.SetActive(false);
             return;
         }
-        
-        Vector2 screenPosition = mainCamera.WorldToScreenPoint(currentInteractable.transform.position);
-        screenPosition += offset;
-
-        rectTransform.position = screenPosition;
     }
 
     public void UpdateCurrentInteractable(InteractableObject interactable)
@@ -52,7 +39,6 @@ public class InteractPrompt : MonoBehaviour
 
             text.text = displayText;
             LayoutRebuilder.ForceRebuildLayoutImmediate(rectTransform);
-            offset = new Vector2(rectTransform.rect.width * 0.5f, rectTransform.rect.height * 0.5f);
         }
     }
 }

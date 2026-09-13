@@ -5,108 +5,76 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(SphereCollider))]
 public class PlayerInteractHandler : MonoBehaviour
 {
-    private SphereCollider sphereCollider;
-    
-    public float interactDistance = 3f;
+    public float interactMaxRange = 1.5f;
+    public InputActionReference interactAction;
 
     public UnityEvent<InteractableObject> OnInteract = new();
-    public UnityEvent<InteractableObject> OnClosestChanged = new();
-
-    private HashSet<InteractableObject> objectsInRange = new();
-    public InteractableObject closestObject; 
-
-    private void OnValidate()
-    {
-        if (sphereCollider == null)
-            sphereCollider = GetComponent<SphereCollider>();
-
-        sphereCollider.isTrigger = true;
-        sphereCollider.radius = interactDistance;
-    }
+    public UnityEvent<InteractableObject> OnFocusedChanged = new();
+    
+    public InteractableObject focusedObject;
+    private Transform mainCameraTransform;
 
     private void Awake()
     {
-        sphereCollider = GetComponent<SphereCollider>();
+        interactAction.action.Enable();
+        mainCameraTransform = Camera.main.transform;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawLine(Camera.main.transform.position, Camera.main.transform.position + interactMaxRange * Camera.main.transform.forward);
     }
 
     private void Update()
     {
         HandleInput();
-        UpdateClosestObject();
+        UpdateFocusedObject();
     }
-
-    /// <summary>
-    /// Checks to see if any of the interact keys are pressed before firing the Interact event
-    /// </summary>
+    
     private void HandleInput()
     {
-        if (!Keyboard.current.spaceKey.wasPressedThisFrame)
+        if (!interactAction.action.WasPressedThisFrame())
             return;
 
         ExecuteInteractCommand();
     }
 
-    public void ExecuteInteractCommand()
+    private void UpdateFocusedObject()
     {
-        if (closestObject == null)
-            return;
+        InteractableObject newFocusedObject = null;
 
-        closestObject.Interact(this);
-        OnInteract.Invoke(closestObject);
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (!other.TryGetComponent(out InteractableObject interactableObject))
-            return;
-
-        objectsInRange.Add(interactableObject);
-        UpdateClosestObject();
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (!other.TryGetComponent<InteractableObject>(out InteractableObject interactableObject))
-            return;
-        
-        objectsInRange.Remove(interactableObject);
-        UpdateClosestObject();
-    }
-
-    private void UpdateClosestObject()
-    {
-        InteractableObject previousClosestObject = closestObject;
-
-        closestObject = null;
-        float closestSqrDistance = float.MaxValue;
-
-        foreach (InteractableObject obj in objectsInRange)
+        if (Physics.Raycast(
+                mainCameraTransform.position,
+                mainCameraTransform.forward,
+                out RaycastHit hit,
+                interactMaxRange,
+                LayerMask.GetMask("Interactable")))
         {
-            if (obj == null)
-                continue;
-
-            float sqrDistance =
-                (obj.transform.position - transform.position).sqrMagnitude;
-
-            if (sqrDistance < closestSqrDistance)
-            {
-                closestSqrDistance = sqrDistance;
-                closestObject = obj;
-            }
+            hit.transform.TryGetComponent(out newFocusedObject);
         }
 
-        if (previousClosestObject == closestObject)
+        if (newFocusedObject == focusedObject)
             return;
 
-        if (previousClosestObject != null)
-            previousClosestObject.Highlight(false);
+        if (focusedObject != null)
+            focusedObject.Highlight(false);
 
-        if (closestObject != null)
-            closestObject.Highlight(true);
+        focusedObject = newFocusedObject;
 
-        OnClosestChanged.Invoke(closestObject);
+        if (focusedObject != null)
+            focusedObject.Highlight(true);
+
+        OnFocusedChanged.Invoke(focusedObject);
+    }
+
+    public void ExecuteInteractCommand()
+    {
+        if (focusedObject == null)
+            return;
+
+        focusedObject.Interact(this);
+        OnInteract.Invoke(focusedObject);
     }
 }
