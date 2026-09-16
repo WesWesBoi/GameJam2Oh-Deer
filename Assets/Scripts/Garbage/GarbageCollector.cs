@@ -1,9 +1,14 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GarbageCollector : MonoBehaviour
 {
     public int garbageCollected = 0;
     public int maxGarbage = 30;
+    public int totalCollected = 0;
+
+    public UnityEvent<int> OnGarbageCollected = new();
+    public UnityEvent<int> OnTotalGarbageCollected = new();
 
     public bool TryCollectGarbage(Garbage garbage)
     {
@@ -11,6 +16,10 @@ public class GarbageCollector : MonoBehaviour
             return false;
         
         garbageCollected++;
+        OnGarbageCollected.Invoke(garbageCollected);
+        
+        totalCollected++;
+        OnTotalGarbageCollected.Invoke(totalCollected);
         return true;
     }
 
