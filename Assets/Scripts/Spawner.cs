@@ -12,6 +12,7 @@ public class Spawner : MonoBehaviour
     private float randomZ;
     public Transform spawnPosition;
     public Quaternion Q; 
+    public NPCFollow nf;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
