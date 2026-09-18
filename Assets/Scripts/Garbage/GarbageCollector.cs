@@ -10,6 +10,10 @@ public class GarbageCollector : MonoBehaviour
     public UnityEvent<int> OnGarbageCollected = new();
     public UnityEvent<int> OnTotalGarbageCollected = new();
 
+
+    public AudioClip emptyGarbageClip;
+    public AudioSource emptyGarbageClipSource;
+
     public bool TryCollectGarbage(Garbage garbage)
     {
         if (garbageCollected >= maxGarbage)
@@ -29,5 +33,6 @@ public class GarbageCollector : MonoBehaviour
             return;
         
         garbageCollected = 0;
+        emptyGarbageClipSource.PlayOneShot(emptyGarbageClip);
     }
 }
