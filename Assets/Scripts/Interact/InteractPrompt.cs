@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class InteractPrompt : MonoBehaviour
 {
     public TMP_Text text;
+    public Image image;
     
     private InteractableObject currentInteractable;
     private RectTransform rectTransform;
@@ -37,6 +38,9 @@ public class InteractPrompt : MonoBehaviour
                 displayText = $"{stackable.stackCount}x {currentInteractable.displayName}";
             }
 
+            image.sprite = interactable.displaySprite;
+            image.gameObject.SetActive(image.sprite != null);
+            
             text.text = displayText;
             LayoutRebuilder.ForceRebuildLayoutImmediate(rectTransform);
         }

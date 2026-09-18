@@ -5,14 +5,6 @@ using UnityEngine.InputSystem;
 
 public class CameraInputController : InputAxisControllerBase<CameraInputController.Reader>
 {
-    public bool isCameraLocked = true;
-    
-    private void Awake()
-    {
-        Cursor.lockState = isCameraLocked ? CursorLockMode.Locked : CursorLockMode.None;
-        Cursor.visible = !isCameraLocked;
-    }
-
     void Update()
     { 
         if (!Application.isPlaying) 
