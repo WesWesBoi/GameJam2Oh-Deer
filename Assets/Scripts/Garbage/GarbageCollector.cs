@@ -21,10 +21,15 @@ public class GarbageCollector : MonoBehaviour
         
         garbageCollected++;
         OnGarbageCollected.Invoke(garbageCollected);
-        
+
+        AddTotalGarbage();
+        return true;
+    }
+
+    public void AddTotalGarbage()
+    {
         totalCollected++;
         OnTotalGarbageCollected.Invoke(totalCollected);
-        return true;
     }
 
     public void EmptyGarbage()
