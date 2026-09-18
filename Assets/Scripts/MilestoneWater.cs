@@ -24,7 +24,7 @@ public class MilestoneWater : MonoBehaviour
     {
         if (waterRenderer != null)
         {
-            waterRenderer.material.color = color;
+            waterRenderer.material.SetColor("_DeepWater", color);
         }
     }
 }

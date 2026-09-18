@@ -6,7 +6,7 @@ using Random = UnityEngine.Random;
 
 public class GarbageSpawner : MonoBehaviour
 {
-    [SerializeField] private Garbage garbagePrefab;
+    [SerializeField] private List<Garbage> garbagePrefabs;
     public List<Garbage> spawnedGarbages = new();
     
     [Header("Config")]
@@ -127,7 +127,7 @@ public class GarbageSpawner : MonoBehaviour
     
     public Garbage SpawnGarbage(Vector3 position)
     {
-        Garbage newGarbage = Instantiate(garbagePrefab, position, Random.rotation, transform);
+        Garbage newGarbage = Instantiate(garbagePrefabs[Random.Range(0, garbagePrefabs.Count)], position, Random.rotation, transform);
         newGarbage.Init(OnGarbageDestroyed);
         spawnedGarbages.Add(newGarbage);
         

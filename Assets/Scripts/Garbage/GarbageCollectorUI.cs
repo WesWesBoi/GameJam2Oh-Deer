@@ -12,7 +12,7 @@ public class GarbageCollectorUI : MonoBehaviour
 
     private void Update()
     {
-        currentGarbageCountText.text = $"Bag: {garbageCollector.garbageCollected}";
+        currentGarbageCountText.text = $"Bag: {garbageCollector.garbageCollected}/{garbageCollector.maxGarbage}";
         remainingGarbageCountText.text = $"Remaining: {garbageSpawner.spawnedGarbages.Count}";
         totalGarbageCountText.text = $"All-time: {garbageCollector.totalCollected}";
     }

@@ -28,7 +28,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -44,11 +44,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bf57588e8d34e7288b742f0a899fac5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GarbageSpawner
-  garbagePrefab: {fileID: 7999860860383114694, guid: 12ed4cf612dc8944ab09198958d5d371, type: 3}
+  garbagePrefabs:
+  - {fileID: 7999860860383114694, guid: b28f733a8d5bc374d97dd3329df94e31, type: 3}
+  - {fileID: 7999860860383114694, guid: d0b7826b9f46f5842985112954886d08, type: 3}
+  - {fileID: 7999860860383114694, guid: d3850cab353fdc4448e06f713bd15b2a, type: 3}
+  - {fileID: 7999860860383114694, guid: 12ed4cf612dc8944ab09198958d5d371, type: 3}
+  - {fileID: 7999860860383114694, guid: 027682516a39701428a82f62dae70568, type: 3}
+  - {fileID: 7999860860383114694, guid: 04907205e1717b4419c2d2d1ccb2cdab, type: 3}
+  - {fileID: 7999860860383114694, guid: 90da0b1f03bef6b4697485ba8ad7c7b1, type: 3}
+  - {fileID: 7999860860383114694, guid: d113a003c10025048ad3c17867510885, type: 3}
+  - {fileID: 7999860860383114694, guid: 1dc02b87f896ee6449d8f8caf0c2aa21, type: 3}
   spawnedGarbages: []
-  center: {x: 0, y: 0, z: 48.4}
-  size: {x: 50, y: 50}
-  gridDimensions: {x: 15, y: 12}
-  garbageCount: 100
+  size: {x: 50, y: 40.2}
+  gridDimensions: {x: 15, y: 18}
+  garbageCount: 50
   cellPadding: 0.2
   spawnHeight: 2
