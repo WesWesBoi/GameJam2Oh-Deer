@@ -10,7 +10,6 @@ public class GarbageSpawner : MonoBehaviour
     public List<Garbage> spawnedGarbages = new();
     
     [Header("Config")]
-    [SerializeField] private Vector3 center;
     [SerializeField] private Vector2 size = new Vector2(1, 1);
     [SerializeField] private Vector2Int gridDimensions = new Vector2Int(2, 2);
     [SerializeField] private int garbageCount = 1;
@@ -45,7 +44,7 @@ public class GarbageSpawner : MonoBehaviour
         int columns = Mathf.Max(1, gridDimensions.x);
         int rows = Mathf.Max(1, gridDimensions.y);
 
-        Vector3 bottomLeft = center - new Vector3(
+        Vector3 bottomLeft = transform.position - new Vector3(
             width / 2f,
             0f,
             depth / 2f
@@ -70,7 +69,7 @@ public class GarbageSpawner : MonoBehaviour
                     (row + 0.5f) * cellDepth
                 );
 
-                cellCenter.y = center.y;
+                cellCenter.y = transform.position.y;
 
                 Gizmos.DrawWireCube(cellCenter, paddedCellSize);
             }
@@ -91,7 +90,7 @@ public class GarbageSpawner : MonoBehaviour
             }
         }
 
-        Vector3 bottomLeft = center - new Vector3(
+        Vector3 bottomLeft = transform.position - new Vector3(
             size.x / 2f,
             0f,
             size.y / 2f
@@ -114,7 +113,7 @@ public class GarbageSpawner : MonoBehaviour
                     cellBottomLeft.x + cellPadding,
                     cellBottomLeft.x + individualGridSize.x - cellPadding
                 ),
-                center.y + spawnHeight,
+                transform.position.y + spawnHeight,
                 UnityEngine.Random.Range(
                     cellBottomLeft.z + cellPadding,
                     cellBottomLeft.z + individualGridSize.y - cellPadding

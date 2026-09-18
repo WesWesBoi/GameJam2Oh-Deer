@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/MenuScene.unity
     guid: 6e6db465d1d8a994f94ea39c1e387137
   - enabled: 1
-    path: Assets/Scenes/ProgramSandBox.unity
-    guid: 4682b1ecdd519bc4298f9eb7875b05ee
+    path: Assets/Scenes/MainScene.unity
+    guid: b5ece973533fefb4a9a6006174763512
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
