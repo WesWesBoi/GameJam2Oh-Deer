@@ -43,7 +43,7 @@ public class NPCFollow : MonoBehaviour
 
     {
 
-        if (collision.gameObject.tag.Equals("Garbage"))
+        if (collision.gameObject.CompareTag("Garbage"))
 
         {
 

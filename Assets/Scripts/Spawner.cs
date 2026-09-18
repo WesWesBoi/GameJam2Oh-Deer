@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    public GameObject character;
+    public GameObject NPC;
     public int maxSpawns = 3;
     public int currentSpawns = 0;
     public float delay = 1f;
@@ -12,7 +12,6 @@ public class Spawner : MonoBehaviour
     private float randomZ;
     public Transform spawnPosition;
     public Quaternion Q; 
-    public NPCFollow nf;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -32,7 +31,7 @@ public class Spawner : MonoBehaviour
             {
                 selectRandomSpawnPoint();
                 currentSpawns = currentSpawns + 1;
-                Instantiate(character, spawnPosition.position, Q);
+                Instantiate(NPC, spawnPosition.position, Q);
                 delay = 2f;
             }
         }
